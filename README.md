@@ -2,6 +2,8 @@
 
 Un password manager da riga di comando scritto in Node.js, con crittografia **AES-256-GCM** e supporto multi-utente. Le password vengono salvate localmente in forma cifrata nella cartella `~/.passmanager`.
 
+> ⚠️ Testato su **Kali Linux**. Dovrebbe funzionare su tutti i sistemi con Node.js installato, ma non è stato verificato su Windows e Mac.
+
 ---
 
 ## ✨ Funzionalità
@@ -13,31 +15,37 @@ Un password manager da riga di comando scritto in Node.js, con crittografia **AE
 - 🗑️ Cancellazione di un sito o dell'intero account
 - 👁️ Visualizzazione di tutte le credenziali salvate
 - 🔒 Crittografia AES-256-GCM con salt casuale per ogni utente
-- 🙈 Input della chiave segreta nascosto (hideEchoBack)
+- 🙈 Input della chiave segreta nascosto
 
 ---
 
-## 📦 Installazione
+## 📦 Requisiti
 
-Assicurati di avere **Node.js** installato (versione 16 o superiore).
+- [Node.js](https://nodejs.org) v16 o superiore
+- [Git](https://git-scm.com)
+- npm (incluso con Node.js)
+
+---
+
+## 🚀 Installazione
 
 ```bash
-git clone https://github.com/tuo-username/password-manager.git
+git clone https://github.com/sburbix/password-manager.git
 cd password-manager
-npm install
+npm install -g .
 ```
 
----
-
-## 🚀 Utilizzo
+## ▶️ Avvio
 
 ```bash
-node Index.js
+passmanager
 ```
 
 Al primo avvio scegli **Registrazione** per creare un account. Nelle sessioni successive usa **Login**.
 
-### Menu principale
+---
+
+## 📋 Menu
 
 ```
 1) Aggiungi password
@@ -57,6 +65,7 @@ Al primo avvio scegli **Registrazione** per creare un account. Nelle sessioni su
 - La chiave segreta viene derivata tramite **scrypt** con un salt casuale a 16 byte
 - Le password vengono cifrate con **AES-256-GCM**, che garantisce sia riservatezza che integrità dei dati
 - Ogni utente ha il proprio file `.nomeutente.json` in `~/.passmanager`, leggibile solo con la chiave corretta
+- Se dimentichi la chiave segreta **non è possibile recuperare** le credenziali
 
 ---
 
@@ -81,14 +90,12 @@ Al primo avvio scegli **Registrazione** per creare un account. Nelle sessioni su
 
 ---
 
-## ⚠️ Note di sicurezza
+## 👤 Autore
 
-- Le password sono salvate **solo in locale**, nessun dato viene inviato in rete
-- Se dimentichi la chiave segreta **non è possibile recuperare** le credenziali
-- Tieni al sicuro la cartella `~/.passmanager`
+[sburbix](https://github.com/sburbix)
 
 ---
 
 ## 📄 Licenza
 
-MIT
+ISC
