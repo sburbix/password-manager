@@ -1,0 +1,94 @@
+# 🔐 Password Manager CLI
+
+Un password manager da riga di comando scritto in Node.js, con crittografia **AES-256-GCM** e supporto multi-utente. Le password vengono salvate localmente in forma cifrata nella cartella `~/.passmanager`.
+
+---
+
+## ✨ Funzionalità
+
+- 📝 Registrazione e login multi-utente
+- ➕ Aggiunta di credenziali per sito (utente + password)
+- 🔍 Ricerca password per sito
+- ✏️ Modifica password o nome utente per un sito
+- 🗑️ Cancellazione di un sito o dell'intero account
+- 👁️ Visualizzazione di tutte le credenziali salvate
+- 🔒 Crittografia AES-256-GCM con salt casuale per ogni utente
+- 🙈 Input della chiave segreta nascosto (hideEchoBack)
+
+---
+
+## 📦 Installazione
+
+Assicurati di avere **Node.js** installato (versione 16 o superiore).
+
+```bash
+git clone https://github.com/tuo-username/password-manager.git
+cd password-manager
+npm install
+```
+
+---
+
+## 🚀 Utilizzo
+
+```bash
+node Index.js
+```
+
+Al primo avvio scegli **Registrazione** per creare un account. Nelle sessioni successive usa **Login**.
+
+### Menu principale
+
+```
+1) Aggiungi password
+2) Cerca password
+3) Cancella password
+4) Cambia password
+5) Guarda i tuoi dati
+6) Cambia nome utente da un sito
+7) Cancella utente
+8) Esci
+```
+
+---
+
+## 🔐 Come funziona la crittografia
+
+- La chiave segreta viene derivata tramite **scrypt** con un salt casuale a 16 byte
+- Le password vengono cifrate con **AES-256-GCM**, che garantisce sia riservatezza che integrità dei dati
+- Ogni utente ha il proprio file `.nomeutente.json` in `~/.passmanager`, leggibile solo con la chiave corretta
+
+---
+
+## 📁 Struttura del progetto
+
+```
+├── Index.js            # Entry point
+├── Menu.js             # Interfaccia CLI
+├── GestorePassword.js  # Logica e crittografia
+├── package.json
+└── README.md
+```
+
+---
+
+## 🛠️ Dipendenze
+
+| Pacchetto        | Utilizzo                        |
+|------------------|---------------------------------|
+| `readline-sync`  | Input interattivo da terminale  |
+| `chalk`          | Colori nel terminale            |
+
+---
+
+## ⚠️ Note di sicurezza
+
+- Le password sono salvate **solo in locale**, nessun dato viene inviato in rete
+- Se dimentichi la chiave segreta **non è possibile recuperare** le credenziali
+- Tieni al sicuro la cartella `~/.passmanager`
+
+---
+
+## 📄 Licenza
+
+MIT
