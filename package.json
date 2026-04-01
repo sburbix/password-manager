@@ -3,7 +3,7 @@
     "chalk": "^4.1.2",
     "readline-sync": "^1.4.10"
   },
-  "name": "pass",
+  "name": "passmanager",
   "version": "1.0.0",
   "main": "Index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "passmanager": "./Index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "sburbix",
   "license": "ISC",
-  "description": ""
+  "description": "Password manager da riga di comando con crittografia AES-256-GCM"
 }
